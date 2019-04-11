@@ -7,10 +7,20 @@
 </head>
 
 <body>
+  <h1>The Office Characters!</h1>
+  <h4>Make sure to type the first AND last name of the character in the search box.</h4>
   <button data-person="Michael Scott">Michael Scott</button>
   <button data-person="Dwight Schrute">Dwight Schrute</button>
   <button data-person="Creed Bratton">Creed Bratton</button>
   <div id="gifs-appear-here">
+
+      <form id="character-form">
+          <label for="character-input">Search Characters</label>
+          <input type="text" id="character-input">
+          <br>
+     <!-- Button triggers new movie to be added -->
+          <input id="add-character" type="submit" value="Search Characters">
+      </form>
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script type="text/javascript">
@@ -21,7 +31,7 @@
 
       // Constructing a queryURL using the animal name
       var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
-        person + "&api_key=dc6zaTOxFJmzC&limit=10";
+        topics + "&api_key=dc6zaTOxFJmzC&limit=10";
 
       // Performing an AJAX request with the queryURL
       $.ajax({
@@ -58,7 +68,13 @@
             $("#gifs-appear-here").prepend(characterDiv);
           }
         });
+      //   // This function handles events where a movie button is clicked
+      // $("#add-character").on("click", function(event) {
+      //   event.preventDefault();
+      //   // This line grabs the input from the textbox
+      //   var character = $("#character-input").val().trim();
     });
+  
   </script>
 </body>
 
